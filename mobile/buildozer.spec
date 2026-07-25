@@ -36,7 +36,7 @@ version = 0.1
 # version.filename = %(source.dir)s/main.py
 
 # (list) Application requirements
-requirements = python3,kivy==2.1.0,requests,kivy_garden.mapview
+requirements = python3,kivy,requests,kivy_garden.mapview
 
 # (str) Custom source folders for requirements
 # requirements.source = 
