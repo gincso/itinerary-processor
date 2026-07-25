@@ -141,3 +141,12 @@ A driver mobile app is available for real-time tracking:
 3. Enable "Unknown Sources" in Android settings
 4. Install and open the app
 5. Enter your Agent Zero server URL and Driver ID
+
+
+## Automated APK Builds
+
+The APK is now automatically built:
+1. On every commit to `mobile/` directory
+2. When creating a new GitHub release
+
+Pre-built APKs are available in the Actions artifacts and Releases page.
