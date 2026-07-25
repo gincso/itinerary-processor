@@ -36,7 +36,7 @@ version = 0.1
 # version.filename = %(source.dir)s/main.py
 
 # (list) Application requirements
-requirements = python3,kivy,requests,kivy_garden.mapview
+requirements = python3,kivy==2.3.0,requests,kivy_garden.mapview
 
 # (str) Custom source folders for requirements
 # requirements.source = 
@@ -85,3 +85,12 @@ android.archs = arm64-v8a, armeabi-v7a
 
 # (bool) Android specific: automatically accept SDK licenses
 android.accept_sdk_license = True
+
+# (list) Permissions
+android.permissions = INTERNET,ACCESS_FINE_LOCATION,ACCESS_COARSE_LOCATION,ACCESS_NETWORK_STATE
+
+# (str) Android logcat filter to limit logs (optional)
+android.logcat_filters = *:S python:D
+
+# (bool) Enable AndroidX
+android.enable_androidx = True
