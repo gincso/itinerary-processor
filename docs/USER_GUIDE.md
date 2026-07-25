@@ -162,3 +162,13 @@ cd /a0/usr/plugins/itinerary_processor/mobile
 ```
 
 This uses a pre-configured Android environment.
+
+
+## GitHub Codespaces Build
+
+For one-click APK building:
+1. Open repository in [Codespaces](https://github.com/codespaces)
+2. Follow prompts to create container
+3. Run build as usual
+
+No local setup required!

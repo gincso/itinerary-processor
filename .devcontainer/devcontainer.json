@@ -1,0 +1,22 @@
+
+{
+    "name": "Itinerary Processor Builder",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+    "features": {
+        "ghcr.io/devcontainers/features/android-emulator:1": {},
+        "ghcr.io/devcontainers/features/java:1": {
+            "version": "17",
+            "jdkDistro": "temurin"
+        },
+        "ghcr.io/devcontainers/features/python:1": {}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python"
+            ]
+        }
+    },
+    "postCreateCommand": "pip install buildozer && buildozer init",
+    "remoteUser": "root"
+}
