@@ -103,3 +103,24 @@ Drivers can now access their routes via mobile devices.
 1. Process itinerary as usual
 2. Share driver-specific links with your team
 3. Access routes from any mobile device
+
+
+## Live GPS Tracking
+
+Real-time driver locations are now visible on the map.
+
+### Features
+- WebSocket-based updates
+- Color-coded driver markers
+- Automatic map centering
+
+### Mobile Integration
+Drivers can submit their location via:
+```
+POST /api/itinerary/location
+{
+    "driver_id": 1,
+    "lat": 34.73,
+    "lng": -112.0
+}
+```

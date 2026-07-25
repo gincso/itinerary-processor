@@ -37,7 +37,19 @@
                target="_blank">Driver <span x-text="driver"></span> Route</a>
         </template>
     </div>
+    <div x-show="$store.itineraryStore.results" class="mb-4">
+        <div id="liveMap" style="height: 400px;"></div>
+        <script type="module">
+            import { initLiveMap } from '/plugins/itinerary_processor/webui/map.js';
+            document.addEventListener('alpine:init', () => {
+                Alpine.store('itineraryStore').initLiveMap = () => {
+                    initLiveMap('liveMap', Alpine.store('itineraryStore').numDrivers);
+                };
+            });
+        </script>
+    </div>
     <a :href="$store.itineraryStore.results.mapUrl"
+    
      
            class="text-blue-500 underline ml-4">View Map</a>
       </div>

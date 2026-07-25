@@ -466,3 +466,19 @@ async def get_driver_route(driver_id: int):
         })
     except Exception as e:
         return JSONResponse({"status": "error", "message": str(e)}, status_code=500)
+
+from .websocket import manager, websocket_endpoint
+from fastapi import WebSocket
+
+@router.websocket("/ws/driver/{driver_id}")
+async def driver_websocket(websocket: WebSocket, driver_id: int):
+    await websocket_endpoint(websocket, driver_id)
+
+async def update_driver_location(driver_id: int, lat: float, lng: float):
+    await manager.broadcast(driver_id, {
+        "type": "location_update",
+        "driver_id": driver_id,
+        "lat": lat,
+        "lng": lng,
+        "timestamp": datetime.now().isoformat()
+    })

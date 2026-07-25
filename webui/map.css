@@ -1,0 +1,17 @@
+
+.driver-marker {
+    background: transparent;
+    border: none;
+}
+
+.driver-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    box-shadow: 0 0 0 2px white;
+}

@@ -45,3 +45,10 @@ export const store = createStore("itineraryStore", {
     }
   }
 });
+
+    initLiveMap() {
+        // Called from Alpine init in the template
+        if (typeof window.initLiveMap === 'function') {
+            window.initLiveMap();
+        }
+    }
