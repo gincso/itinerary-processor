@@ -58,3 +58,18 @@
    - Ensure the plugin is in `/a0/usr/plugins/`
    - Check `plugin.yaml` exists
    - Restart Agent Zero
+
+
+## Traffic-Aware Routing
+
+The plugin now supports real-time traffic data when a Google Maps API key is provided.
+
+### Features
+- Accurate ETAs based on current/predicted traffic
+- Fallback to straight-line distance if API fails
+- Traffic data shown on interactive map
+
+### Requirements
+- Valid Google Maps API key with:
+  - Directions API enabled
+  - Distance Matrix API enabled
