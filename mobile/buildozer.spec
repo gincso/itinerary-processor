@@ -69,7 +69,7 @@ orientation = portrait
 #android.ndk = /path/to/android/ndk
 
 # (int) Android specific: the Android API to target
-android.api = 30
+android.api = 31
 
 # (int) Android specific: the minimum Android API required
 android.minapi = 21
