@@ -124,3 +124,20 @@ POST /api/itinerary/location
     "lng": -112.0
 }
 ```
+
+
+## Mobile APK
+
+A driver mobile app is available for real-time tracking:
+
+### Features
+- View assigned route
+- Submit location updates
+- Automatic periodic updates
+
+### Installation
+1. Build the APK using the instructions in `mobile/BUILD_INSTRUCTIONS.md`
+2. Transfer APK to Android device
+3. Enable "Unknown Sources" in Android settings
+4. Install and open the app
+5. Enter your Agent Zero server URL and Driver ID
