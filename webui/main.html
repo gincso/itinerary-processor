@@ -4,7 +4,18 @@
       <h2 class="text-xl font-bold mb-4">Itinerary Processor</h2>
 
       <div class="mb-4">
+        <div class="mb-4">
+        <label class="block mb-2">Number of Drivers:</label>
+        <select x-model="$store.itineraryStore.numDrivers" class="border p-2 w-full">
+            <option value="1">1 Driver</option>
+            <option value="2">2 Drivers</option>
+            <option value="3">3 Drivers</option>
+            <option value="4">4 Drivers</option>
+        </select>
+    </div>
+    <div class="mb-4">
         <label class="block mb-2">Upload Itinerary File:</label>
+    
         <input type="file" @change="$store.itineraryStore.handleUpload($event)" 
                class="border p-2 w-full" accept=".md,.txt,.csv">
       </div>

@@ -24,7 +24,7 @@ export const store = createStore("itineraryStore", {
       const formData = new FormData();
       formData.append("file", file);
 
-      const response = await fetch("/api/itinerary_process", {
+      const response = await fetch(`/api/itinerary_process?num_drivers=${this.numDrivers}`, {
         method: "POST",
         body: formData
       });

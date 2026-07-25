@@ -73,3 +73,18 @@ The plugin now supports real-time traffic data when a Google Maps API key is pro
 - Valid Google Maps API key with:
   - Directions API enabled
   - Distance Matrix API enabled
+
+
+## Multi-Driver Support
+
+The plugin can now split large itineraries across multiple drivers.
+
+### Features
+- Automatic stop clustering using k-means
+- Individual optimized routes per driver
+- Color-coded map visualization
+
+### Usage
+1. Select number of drivers in the web interface
+2. Upload itinerary as usual
+3. View/download separate routes
