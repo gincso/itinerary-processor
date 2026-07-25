@@ -32,7 +32,7 @@ jobs:
       env:
         GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
       run: |
-        python -c "from handler import process_itinerary; import asyncio; asyncio.run(process_itinerary('${{ github.event.inputs.itinerary || 'itinerary.md' }}', '.'))"
+        python -c "import sys; sys.path.insert(0, 'api'); from handler import process_itinerary; import asyncio; asyncio.run(process_itinerary('${{ github.event.inputs.itinerary || 'itinerary.md' }}', '.'))"
 
     - name: Upload results
       uses: actions/upload-artifact@v4

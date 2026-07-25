@@ -4,19 +4,18 @@
       <h2 class="text-xl font-bold mb-4">Itinerary Processor</h2>
 
       <div class="mb-4">
-        <div class="mb-4">
         <label class="block mb-2">Number of Drivers:</label>
-        <select x-model="$store.itineraryStore.numDrivers" class="border p-2 w-full">
-            <option value="1">1 Driver</option>
-            <option value="2">2 Drivers</option>
-            <option value="3">3 Drivers</option>
-            <option value="4">4 Drivers</option>
+        <select x-model.number="$store.itineraryStore.numDrivers" class="border p-2 w-full">
+          <option value="1">1 Driver</option>
+          <option value="2">2 Drivers</option>
+          <option value="3">3 Drivers</option>
+          <option value="4">4 Drivers</option>
         </select>
-    </div>
-    <div class="mb-4">
+      </div>
+
+      <div class="mb-4">
         <label class="block mb-2">Upload Itinerary File:</label>
-    
-        <input type="file" @change="$store.itineraryStore.handleUpload($event)" 
+        <input type="file" @change="$store.itineraryStore.handleUpload($event)"
                class="border p-2 w-full" accept=".md,.txt,.csv">
       </div>
 
@@ -26,32 +25,32 @@
 
       <div x-show="$store.itineraryStore.results" class="mb-4">
         <h3 class="font-bold mb-2">Results:</h3>
-        <a :href="$store.itineraryStore.results.csvUrl" 
+        <a :href="$store.itineraryStore.results.csvUrl"
            class="text-blue-500 underline" download>Download CSV</a>
-        <div x-show="$store.itineraryStore.results" class="mb-4 p-4 border rounded">
+        <a :href="$store.itineraryStore.results.mapUrl"
+           class="text-blue-500 underline ml-4">View Map</a>
+      </div>
+
+      <div x-show="$store.itineraryStore.results" class="mb-4 p-4 border rounded">
         <h3 class="font-bold mb-2">Mobile Access:</h3>
         <div class="mb-2">Driver Links:</div>
         <template x-for="driver in [1, 2, 3, 4].slice(0, $store.itineraryStore.numDrivers)">
-            <a :href="`/api/itinerary/mobile/driver_route/${driver}`" 
-               class="block text-blue-500 underline mb-1" 
-               target="_blank">Driver <span x-text="driver"></span> Route</a>
+          <a :href="`/api/itinerary/mobile/driver_route/${driver}`"
+             class="block text-blue-500 underline mb-1"
+             target="_blank">Driver <span x-text="driver"></span> Route</a>
         </template>
-    </div>
-    <div x-show="$store.itineraryStore.results" class="mb-4">
+      </div>
+
+      <div x-show="$store.itineraryStore.results" class="mb-4">
         <div id="liveMap" style="height: 400px;"></div>
         <script type="module">
-            import { initLiveMap } from '/plugins/itinerary_processor/webui/map.js';
-            document.addEventListener('alpine:init', () => {
-                Alpine.store('itineraryStore').initLiveMap = () => {
-                    initLiveMap('liveMap', Alpine.store('itineraryStore').numDrivers);
-                };
-            });
+          import { initLiveMap } from '/plugins/itinerary_processor/webui/map.js';
+          document.addEventListener('alpine:init', () => {
+            Alpine.store('itineraryStore').initLiveMap = () => {
+              initLiveMap('liveMap', Alpine.store('itineraryStore').numDrivers);
+            };
+          });
         </script>
-    </div>
-    <a :href="$store.itineraryStore.results.mapUrl"
-    
-     
-           class="text-blue-500 underline ml-4">View Map</a>
       </div>
     </div>
   </template>

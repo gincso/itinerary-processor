@@ -4,6 +4,7 @@ import { toastFrontendSuccess, toastFrontendError } from "/components/notificati
 export const store = createStore("itineraryStore", {
   processing: false,
   results: null,
+  numDrivers: 1,
 
   onOpen() {
     this.reset();
@@ -24,7 +25,8 @@ export const store = createStore("itineraryStore", {
       const formData = new FormData();
       formData.append("file", file);
 
-      const response = await fetch(`/api/itinerary_process?num_drivers=${this.numDrivers}`, {
+      const numDrivers = parseInt(this.numDrivers, 10) || 1;
+      const response = await fetch(`/api/itinerary_process?num_drivers=${numDrivers}`, {
         method: "POST",
         body: formData
       });
@@ -43,12 +45,11 @@ export const store = createStore("itineraryStore", {
     } finally {
       this.processing = false;
     }
+  },
+
+  initLiveMap() {
+    if (typeof window.initLiveMap === 'function') {
+      window.initLiveMap();
+    }
   }
 });
-
-    initLiveMap() {
-        // Called from Alpine init in the template
-        if (typeof window.initLiveMap === 'function') {
-            window.initLiveMap();
-        }
-    }
