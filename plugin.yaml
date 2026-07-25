@@ -1,0 +1,7 @@
+name: itinerary_processor
+title: Itinerary Processor
+description: Processes delivery itineraries with geocoding and route optimization.
+version: 1.0.0
+settings_sections: []
+per_project_config: false
+per_agent_config: false

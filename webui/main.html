@@ -1,0 +1,25 @@
+<div x-data>
+  <template x-if="$store.itineraryStore">
+    <div x-init="$store.itineraryStore.onOpen()">
+      <h2 class="text-xl font-bold mb-4">Itinerary Processor</h2>
+
+      <div class="mb-4">
+        <label class="block mb-2">Upload Itinerary File:</label>
+        <input type="file" @change="$store.itineraryStore.handleUpload($event)" 
+               class="border p-2 w-full" accept=".md,.txt,.csv">
+      </div>
+
+      <div x-show="$store.itineraryStore.processing" class="mb-4">
+        Processing itinerary...
+      </div>
+
+      <div x-show="$store.itineraryStore.results" class="mb-4">
+        <h3 class="font-bold mb-2">Results:</h3>
+        <a :href="$store.itineraryStore.results.csvUrl" 
+           class="text-blue-500 underline" download>Download CSV</a>
+        <a :href="$store.itineraryStore.results.mapUrl" 
+           class="text-blue-500 underline ml-4">View Map</a>
+      </div>
+    </div>
+  </template>
+</div>
