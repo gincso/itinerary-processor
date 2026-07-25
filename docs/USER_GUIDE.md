@@ -1,0 +1,60 @@
+# Itinerary Processor - User Guide
+
+## Table of Contents
+1. [Agent Zero Plugin Installation](#agent-zero-plugin-installation)
+2. [GitHub Actions Setup](#github-actions-setup)
+3. [Usage Instructions](#usage-instructions)
+4. [Troubleshooting](#troubleshooting)
+
+## Agent Zero Plugin Installation
+
+### Requirements
+- Agent Zero v1.2.0 or later
+- Python 3.13
+
+### Installation Steps
+1. Clone the repository to your plugins folder:
+   ```bash
+   git clone https://github.com/gincso/itinerary-processor.git      /a0/usr/plugins/itinerary_processor
+   ```
+2. Restart Agent Zero
+3. Navigate to Settings > Plugins
+4. Enable "Itinerary Processor"
+
+## GitHub Actions Setup
+
+1. Add this repository to your project as a submodule:
+   ```bash
+   git submodule add https://github.com/gincso/itinerary-processor.git
+   ```
+2. Add your Google Maps API key as a repository secret:
+   - Go to Settings > Secrets > Actions
+   - Add new secret named `GOOGLE_API_KEY`
+
+## Usage Instructions
+
+### Agent Zero Plugin
+1. Open the Itinerary Processor plugin
+2. Upload your itinerary file (Markdown or CSV format)
+3. View/download the optimized route and map
+
+### GitHub Actions
+1. Commit an `itinerary.md` file to your repository
+2. The workflow will automatically:
+   - Process the itinerary
+   - Create optimized route CSV
+   - Generate interactive map
+   - Open PR with results (if on main branch)
+3. Download artifacts from the workflow run
+
+## Troubleshooting
+
+### Common Issues
+1. **Geocoding fails**
+   - Verify your Google Maps API key
+   - Check address formatting in your itinerary
+
+2. **Plugin not appearing**
+   - Ensure the plugin is in `/a0/usr/plugins/`
+   - Check `plugin.yaml` exists
+   - Restart Agent Zero
