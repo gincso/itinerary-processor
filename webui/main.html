@@ -28,7 +28,17 @@
         <h3 class="font-bold mb-2">Results:</h3>
         <a :href="$store.itineraryStore.results.csvUrl" 
            class="text-blue-500 underline" download>Download CSV</a>
-        <a :href="$store.itineraryStore.results.mapUrl" 
+        <div x-show="$store.itineraryStore.results" class="mb-4 p-4 border rounded">
+        <h3 class="font-bold mb-2">Mobile Access:</h3>
+        <div class="mb-2">Driver Links:</div>
+        <template x-for="driver in [1, 2, 3, 4].slice(0, $store.itineraryStore.numDrivers)">
+            <a :href="`/api/itinerary/mobile/driver_route/${driver}`" 
+               class="block text-blue-500 underline mb-1" 
+               target="_blank">Driver <span x-text="driver"></span> Route</a>
+        </template>
+    </div>
+    <a :href="$store.itineraryStore.results.mapUrl"
+     
            class="text-blue-500 underline ml-4">View Map</a>
       </div>
     </div>

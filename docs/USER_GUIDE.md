@@ -88,3 +88,18 @@ The plugin can now split large itineraries across multiple drivers.
 1. Select number of drivers in the web interface
 2. Upload itinerary as usual
 3. View/download separate routes
+
+
+## Mobile App Integration
+
+Drivers can now access their routes via mobile devices.
+
+### Features
+- Dedicated API endpoint per driver
+- JSON format optimized for mobile apps
+- Real-time route updates
+
+### Usage
+1. Process itinerary as usual
+2. Share driver-specific links with your team
+3. Access routes from any mobile device

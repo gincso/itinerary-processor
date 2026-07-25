@@ -3,5 +3,6 @@ title: Itinerary Processor
 description: Processes delivery itineraries with geocoding and route optimization.
 version: 1.0.0
 settings_sections: []
+api_prefix: /itinerary
 per_project_config: false
 per_agent_config: false

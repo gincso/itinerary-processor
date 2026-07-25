@@ -435,3 +435,34 @@ def create_multi_driver_map(driver_routes, output_path):
         ).add_to(m)
 
     m.save(output_path)
+
+
+from fastapi import APIRouter
+router = APIRouter()
+
+@router.get("/mobile/driver_route/{driver_id}")
+async def get_driver_route(driver_id: int):
+    """Get optimized route for a specific driver"""
+    try:
+        # In production, this would fetch from database
+        # For demo, we'll use the last processed file
+        import glob
+        latest_dir = max(glob.glob("/a0/usr/workdir/itinerary_processor/*"), key=os.path.getmtime)
+        csv_path = f"{latest_dir}/multi_driver_route.csv"
+
+        if not os.path.exists(csv_path):
+            return JSONResponse({"status": "error", "message": "No routes found"}, status_code=404)
+
+        df = pd.read_csv(csv_path)
+        driver_df = df[df['driver_id'] == driver_id]
+
+        if driver_df.empty:
+            return JSONResponse({"status": "error", "message": "Driver not found"}, status_code=404)
+
+        return JSONResponse({
+            "status": "success",
+            "driver_id": driver_id,
+            "stops": driver_df.to_dict('records')
+        })
+    except Exception as e:
+        return JSONResponse({"status": "error", "message": str(e)}, status_code=500)
