@@ -150,3 +150,15 @@ The APK is now automatically built:
 2. When creating a new GitHub release
 
 Pre-built APKs are available in the Actions artifacts and Releases page.
+
+
+## Docker Build
+
+For reliable builds, use the Docker method:
+
+```bash
+cd /a0/usr/plugins/itinerary_processor/mobile
+./build_with_docker.sh
+```
+
+This uses a pre-configured Android environment.
