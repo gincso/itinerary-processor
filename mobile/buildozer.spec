@@ -80,5 +80,8 @@ android.minapi = 21
 # (bool) Android specific: if true, skip Java compilation step
 #android.skip_compile_java = False
 
-# (str) Android specific: the Android arch to build for
-android.arch = armeabi-v7a
+# (list) Android specific: the Android archs to build for
+android.archs = arm64-v8a, armeabi-v7a
+
+# (bool) Android specific: automatically accept SDK licenses
+android.accept_sdk_license = True
