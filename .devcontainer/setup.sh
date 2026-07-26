@@ -35,15 +35,17 @@ pip install --upgrade pip setuptools wheel cython
 # Install Buildozer
 pip install buildozer
 
-# Navigate to mobile directory
-cd /workspaces/itinerary-processor/mobile
-
-# Initialize buildozer if not already done
-if [ ! -f buildozer.spec ]; then
-    echo "📝 Initializing buildozer configuration..."
-    buildozer init -f
-else
-    echo "✅ buildozer.spec already exists, skipping init"
+# Navigate to mobile directory if it exists
+if [ -d "/workspaces/itinerary-processor/mobile" ]; then
+    cd /workspaces/itinerary-processor/mobile
+    
+    # Initialize buildozer if not already done
+    if [ ! -f buildozer.spec ]; then
+        echo "📝 Initializing buildozer configuration..."
+        buildozer init -f
+    else
+        echo "✅ buildozer.spec already exists, skipping init"
+    fi
 fi
 
 echo "✨ Setup complete! You can now:"
