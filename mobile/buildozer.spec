@@ -64,6 +64,8 @@ orientation = portrait
 
 # (str) Android specific: the Android SDK to use
 #android.sdk = /path/to/android/sdk
+# (str) Android NDK version to use
+android.ndk = 25b
 
 # (str) Android specific: the Android NDK to use
 #android.ndk = /path/to/android/ndk

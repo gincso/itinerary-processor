@@ -1,10 +1,25 @@
 
 from kivy.app import App
+import logging
+from kivy.logger import Logger
+from kivy.utils import platform
+
+def handle_exception(exc_type, exc_value, exc_traceback):
+    Logger.error("Uncaught exception", exc_info=(exc_type, exc_value, exc_traceback))
+    if platform == 'android':
+        from jnius import autoclass
+        Toast = autoclass('android.widget.Toast')
+        context = autoclass('org.kivy.android.PythonActivity').mActivity
+        Toast.makeText(context, f"App crashed: {str(exc_value)}", Toast.LENGTH_LONG).show()
+
+import sys
+sys.excepthook = handle_exception
+
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
-from kivy.garden.mapview import MapView, MapMarker
+from kivy_garden.mapview import MapView, MapMarker
 from kivy.clock import Clock
 import requests
 import json
